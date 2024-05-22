@@ -1,0 +1,154 @@
+diff --git a/node_modules/@openzeppelin/hardhat-upgrades/dist/deploy-proxy.js b/node_modules/@openzeppelin/hardhat-upgrades/dist/deploy-proxy.js
+index c47a8ae..0cdc59a 100644
+--- a/node_modules/@openzeppelin/hardhat-upgrades/dist/deploy-proxy.js
++++ b/node_modules/@openzeppelin/hardhat-upgrades/dist/deploy-proxy.js
+@@ -3,17 +3,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.makeDeployProxy = void 0;
+ const upgrades_core_1 = require("@openzeppelin/upgrades-core");
+ const utils_1 = require("./utils");
++const  ethers  = require("ethers");
+ function makeDeployProxy(hre) {
+     return async function deployProxy(ImplFactory, args = [], opts = {}) {
+         if (!Array.isArray(args)) {
+             opts = args;
+             args = [];
+         }
++
+         const { provider } = hre.network;
++        var network = hre.network.name;
++       
+         const manifest = await upgrades_core_1.Manifest.forNetwork(provider);
+-        const { impl, kind } = await (0, utils_1.deployProxyImpl)(hre, ImplFactory, opts);
++       //var { impl, kind } = await (0, utils_1.deployProxyImpl)(hre, ImplFactory, opts);
++       if(network!= "fork"&&network!= "localhost"){
++        var { impl, kind } = {impl:"0x0000000000FFe8B47B3e2130213B802212439497",kind:"transparent"};
++    }else{
++        var { impl, kind } = await (0, utils_1.deployProxyImpl)(hre, ImplFactory, opts);
++    }
+         const contractInterface = ImplFactory.interface;
+-        const data = (0, utils_1.getInitializerData)(contractInterface, args, opts.initializer);
++        var data = (0, utils_1.getInitializerData)(contractInterface, args, opts.initializer);
+         if (kind === 'uups') {
+             if (await manifest.getAdmin()) {
+                 (0, upgrades_core_1.logWarning)(`A proxy admin was previously deployed on this network`, [
+@@ -35,11 +44,15 @@ function makeDeployProxy(hre) {
+             case 'transparent': {
+                 const adminAddress = await hre.upgrades.deployProxyAdmin(ImplFactory.signer, opts);
+                 const TransparentUpgradeableProxyFactory = await (0, utils_1.getTransparentUpgradeableProxyFactory)(hre, ImplFactory.signer);
++                if(network!= "fork"&&network!= "localhost"){
++                    data = ethers.utils.toUtf8Bytes('');
++                }
+                 proxyDeployment = Object.assign({ kind }, await (0, utils_1.deploy)(TransparentUpgradeableProxyFactory, impl, adminAddress, data));
+                 break;
+             }
+         }
+         await manifest.addProxy(proxyDeployment);
++        await upgrades
+         const inst = ImplFactory.attach(proxyDeployment.address);
+         // @ts-ignore Won't be readonly because inst was created through attach.
+         inst.deployTransaction = proxyDeployment.deployTransaction;
+diff --git a/node_modules/@openzeppelin/hardhat-upgrades/dist/upgrade-proxy.js b/node_modules/@openzeppelin/hardhat-upgrades/dist/upgrade-proxy.js
+index a580738..1d80026 100644
+--- a/node_modules/@openzeppelin/hardhat-upgrades/dist/upgrade-proxy.js
++++ b/node_modules/@openzeppelin/hardhat-upgrades/dist/upgrade-proxy.js
+@@ -6,8 +6,10 @@ const utils_1 = require("./utils");
+ function makeUpgradeProxy(hre) {
+     return async function upgradeProxy(proxy, ImplFactory, opts = {}) {
+         const proxyAddress = (0, utils_1.getContractAddress)(proxy);
++        
+         const { impl: nextImpl } = await (0, utils_1.deployProxyImpl)(hre, ImplFactory, opts, proxyAddress);
+         // upgrade kind is inferred above
++        console.log(global.saltTable.impl)
+         const upgradeTo = await getUpgrader(proxyAddress, ImplFactory.signer);
+         const call = encodeCall(ImplFactory, opts.call);
+         const upgradeTx = await upgradeTo(nextImpl, call);
+diff --git a/node_modules/@openzeppelin/hardhat-upgrades/dist/utils/deploy.js b/node_modules/@openzeppelin/hardhat-upgrades/dist/utils/deploy.js
+index e31734f..aa52ca4 100644
+--- a/node_modules/@openzeppelin/hardhat-upgrades/dist/utils/deploy.js
++++ b/node_modules/@openzeppelin/hardhat-upgrades/dist/utils/deploy.js
+@@ -6,16 +6,65 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.deploy = void 0;
+ const debug_1 = __importDefault(require("./debug"));
+ const utils_1 = require("ethers/lib/utils");
++const  ethers  = require("ethers");
+ async function deploy(factory, ...args) {
+-    const contractInstance = await factory.deploy(...args);
+-    const { deployTransaction } = contractInstance;
+-    const address = (0, utils_1.getContractAddress)({
+-        from: await factory.signer.getAddress(),
+-        nonce: deployTransaction.nonce,
+-    });
+-    if (address !== contractInstance.address) {
+-        (0, debug_1.default)(`overriding contract address from ${contractInstance.address} to ${address} for nonce ${deployTransaction.nonce}`);
++
++    async function create2(factory,salt,tes,isArgs,...args){
++        const factoryAddr = "0x0000000000FFe8B47B3e2130213B802212439497";
++        const abi = [{"constant":true,"inputs":[{"name":"deploymentAddress","type":"address"}],"name":"hasBeenDeployed","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"salt","type":"bytes32"},{"name":"initializationCode","type":"bytes"}],"name":"safeCreate2","outputs":[{"name":"deploymentAddress","type":"address"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"salt","type":"bytes32"},{"name":"initCode","type":"bytes"}],"name":"findCreate2Address","outputs":[{"name":"deploymentAddress","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"salt","type":"bytes32"},{"name":"initCodeHash","type":"bytes32"}],"name":"findCreate2AddressViaHash","outputs":[{"name":"deploymentAddress","type":"address"}],"payable":false,"stateMutability":"view","type":"function"}];
++        const contract = new ethers.Contract(factoryAddr,abi,factory.signer);
++        let bytecode = factory.bytecode;
++       
++        if(isArgs){
++          // console.log(ar)
++          if(args.length == 3){
++            bytecode = ethers.utils.solidityPack(
++              ['bytes', 'bytes'],
++              [factory.bytecode, ethers.utils.defaultAbiCoder.encode(["address","address","bytes"], args)]
++            );
++          }else if(args.length == 1){
++            bytecode = ethers.utils.solidityPack(
++              ['bytes', 'bytes'],
++              [factory.bytecode, ethers.utils.defaultAbiCoder.encode(["address"], args)]
++            );
++          }
++          
++        }
++        //   console.log(bytecode);
++        const deployAddr = await contract.findCreate2Address(salt,bytecode);
++        console.log(tes,deployAddr);
++        const tx =await contract.safeCreate2(salt,bytecode);
++   
++        await tx.wait();
++
++       return {
++            address:deployAddr,
++            deployTransaction:tx
++        }
+     }
++    let contractInstance;
++   var network = hre.network.name;
++   if(network!= "fork"&&network!= "localhost"&&factory.interface.functions["initialize(address,address)"]){
++     contractInstance = await create2(factory,global.saltTable.impl,"impl",false,...args);
++   }else if(network!= "fork"&&network!= "localhost"&&factory.interface.functions["upgradeTo(address)"]){
++     contractInstance = await create2(factory,global.saltTable.proxy,"proxy",true,...args);
++   }else if(network!= "fork"&&network!= "localhost"&&factory.interface.functions["changeProxyAdmin(address,address)"]){
++     contractInstance = await create2(factory,global.saltTable.admin,"admin",true,...[await factory.signer.getAddress()]);
++   }else{
++    if(factory.interface.functions["changeProxyAdmin(address,address)"]){
++      args.push(await factory.signer.getAddress());
++    }
++     contractInstance = await factory.deploy(...args);
++   }
++  
++    const { deployTransaction,address } = contractInstance;
++    // const address = (0, utils_1.getContractAddress)({
++    //     from: await factory.signer.getAddress(),
++    //     nonce: deployTransaction.nonce,
++    // });
++    // if (address !== contractInstance.address) {
++    //     (0, debug_1.default)(`overriding contract address from ${contractInstance.address} to ${address} for nonce ${deployTransaction.nonce}`);
++    // }
+     const txHash = deployTransaction.hash;
+     return { address, txHash, deployTransaction };
+ }
+diff --git a/node_modules/@openzeppelin/hardhat-upgrades/src/utils/deploy.ts b/node_modules/@openzeppelin/hardhat-upgrades/src/utils/deploy.ts
+index 9364b5b..f2b9520 100644
+--- a/node_modules/@openzeppelin/hardhat-upgrades/src/utils/deploy.ts
++++ b/node_modules/@openzeppelin/hardhat-upgrades/src/utils/deploy.ts
+@@ -13,7 +13,6 @@ export async function deploy(
+ ): Promise<Required<Deployment & DeployTransaction>> {
+   const contractInstance = await factory.deploy(...args);
+   const { deployTransaction } = contractInstance;
+-
+   const address: string = getContractAddress({
+     from: await factory.signer.getAddress(),
+     nonce: deployTransaction.nonce,
