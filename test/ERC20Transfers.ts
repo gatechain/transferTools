@@ -25,7 +25,7 @@ describe("ERC20Transfers", function () {
           const [owner] = await ethers.getSigners();
           const TransfersTools =new factories.contracts.transfersToolsSol.TransfersTools__factory(owner);
           const transfersTools =  TransfersTools.attach(addrs.TransfersTools);
-          var data = await fs.readFile("./test/address.csv","utf-8");
+          var data = await fs.readFile("./test/ERC20Address.csv","utf-8");
           var list = data.split("\n");
           var addressList = [];
           var amountList = [];
