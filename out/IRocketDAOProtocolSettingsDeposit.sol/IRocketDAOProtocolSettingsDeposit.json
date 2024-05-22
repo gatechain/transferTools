@@ -1,0 +1,281 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getDepositFee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getMaximumDepositPoolSize",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "getDepositFee()": "0de705b5",
+    "getMaximumDepositPoolSize()": "fd6ce89e"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getDepositFee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMaximumDepositPoolSize\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/IRocketDAOProtocolSettingsDeposit.sol\":\"IRocketDAOProtocolSettingsDeposit\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@aave/=node_modules/@aave/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/interfaces/IRocketDAOProtocolSettingsDeposit.sol\":{\"keccak256\":\"0x40a58931312eb09234363702b644f0b4499552762ff362139ac01889e9aa9e01\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e63b4008d08e469e1e1c18a01e74035d12cf2dcf5420ffa16af4e9d0c740d1b3\",\"dweb:/ipfs/QmWVNp6ejJk9MZNeSzhaXt8mcPRmYqGJTxJsN187zP2Koi\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.18+commit.87f61d96"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getDepositFee",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getMaximumDepositPoolSize",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@aave/=node_modules/@aave/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/interfaces/IRocketDAOProtocolSettingsDeposit.sol": "IRocketDAOProtocolSettingsDeposit"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/interfaces/IRocketDAOProtocolSettingsDeposit.sol": {
+        "keccak256": "0x40a58931312eb09234363702b644f0b4499552762ff362139ac01889e9aa9e01",
+        "urls": [
+          "bzz-raw://e63b4008d08e469e1e1c18a01e74035d12cf2dcf5420ffa16af4e9d0c740d1b3",
+          "dweb:/ipfs/QmWVNp6ejJk9MZNeSzhaXt8mcPRmYqGJTxJsN187zP2Koi"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/IRocketDAOProtocolSettingsDeposit.sol",
+    "id": 1806,
+    "exportedSymbols": {
+      "IRocketDAOProtocolSettingsDeposit": [
+        1805
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:209:5",
+    "nodes": [
+      {
+        "id": 1794,
+        "nodeType": "PragmaDirective",
+        "src": "32:23:5",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".18"
+        ]
+      },
+      {
+        "id": 1805,
+        "nodeType": "ContractDefinition",
+        "src": "58:183:5",
+        "nodes": [
+          {
+            "id": 1799,
+            "nodeType": "FunctionDefinition",
+            "src": "108:69:5",
+            "nodes": [],
+            "functionSelector": "fd6ce89e",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getMaximumDepositPoolSize",
+            "nameLocation": "117:25:5",
+            "parameters": {
+              "id": 1795,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "142:2:5"
+            },
+            "returnParameters": {
+              "id": 1798,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1797,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1799,
+                  "src": "168:7:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1796,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "168:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "167:9:5"
+            },
+            "scope": 1805,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1804,
+            "nodeType": "FunctionDefinition",
+            "src": "182:57:5",
+            "nodes": [],
+            "functionSelector": "0de705b5",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getDepositFee",
+            "nameLocation": "191:13:5",
+            "parameters": {
+              "id": 1800,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "204:2:5"
+            },
+            "returnParameters": {
+              "id": 1803,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1802,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1804,
+                  "src": "230:7:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1801,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "230:7:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "229:9:5"
+            },
+            "scope": 1805,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IRocketDAOProtocolSettingsDeposit",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          1805
+        ],
+        "name": "IRocketDAOProtocolSettingsDeposit",
+        "nameLocation": "68:33:5",
+        "scope": 1806,
+        "usedErrors": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 5
+}

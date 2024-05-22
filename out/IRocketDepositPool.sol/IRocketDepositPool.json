@@ -1,0 +1,157 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "deposit",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "deposit()": "d0e30db0"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/IRocketDepositPool.sol\":\"IRocketDepositPool\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@aave/=node_modules/@aave/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/interfaces/IRocketDepositPool.sol\":{\"keccak256\":\"0x308491183be3edef5b4cc7d33d447df4e45ce18562f0b468222ac713ca032c7a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c14d23ee40f1affd1672d23feeaaec8950f7ea8f711a0829f43b1555b76e0053\",\"dweb:/ipfs/QmfM92cMSREHJREUWTygJ1cZR1TW2uHCK7YorvxwJX6R3K\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.18+commit.87f61d96"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "deposit"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@aave/=node_modules/@aave/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/interfaces/IRocketDepositPool.sol": "IRocketDepositPool"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/interfaces/IRocketDepositPool.sol": {
+        "keccak256": "0x308491183be3edef5b4cc7d33d447df4e45ce18562f0b468222ac713ca032c7a",
+        "urls": [
+          "bzz-raw://c14d23ee40f1affd1672d23feeaaec8950f7ea8f711a0829f43b1555b76e0053",
+          "dweb:/ipfs/QmfM92cMSREHJREUWTygJ1cZR1TW2uHCK7YorvxwJX6R3K"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/IRocketDepositPool.sol",
+    "id": 1812,
+    "exportedSymbols": {
+      "IRocketDepositPool": [
+        1811
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:99:6",
+    "nodes": [
+      {
+        "id": 1807,
+        "nodeType": "PragmaDirective",
+        "src": "32:23:6",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".18"
+        ]
+      },
+      {
+        "id": 1811,
+        "nodeType": "ContractDefinition",
+        "src": "58:73:6",
+        "nodes": [
+          {
+            "id": 1810,
+            "nodeType": "FunctionDefinition",
+            "src": "93:36:6",
+            "nodes": [],
+            "functionSelector": "d0e30db0",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deposit",
+            "nameLocation": "102:7:6",
+            "parameters": {
+              "id": 1808,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "109:2:6"
+            },
+            "returnParameters": {
+              "id": 1809,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "128:0:6"
+            },
+            "scope": 1811,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IRocketDepositPool",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          1811
+        ],
+        "name": "IRocketDepositPool",
+        "nameLocation": "68:18:6",
+        "scope": 1812,
+        "usedErrors": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 6
+}

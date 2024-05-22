@@ -1,0 +1,322 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        }
+      ],
+      "name": "submitAndDeposit",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "shares",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        }
+      ],
+      "name": "submitAndGive",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "submitAndDeposit(address)": "4dcd4547",
+    "submitAndGive(address)": "bfda0c8c"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"submitAndDeposit\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"shares\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"}],\"name\":\"submitAndGive\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/IFrxETHMinter.sol\":\"IFrxETHMinter\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@aave/=node_modules/@aave/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/interfaces/IFrxETHMinter.sol\":{\"keccak256\":\"0xae09da6c166c3c5d6a971a97fae3b5703eff459a04d675c9141ef6e7620c9f07\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dc4348ef9c860b5de90e57f803046802711f8eca15ad993896403a1d137f1195\",\"dweb:/ipfs/QmV8PuvdNVvE5vARwvQfddaZXZwxFMJ4gkuwcUadhXTAFZ\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.18+commit.87f61d96"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "submitAndDeposit",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "shares",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "submitAndGive"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@aave/=node_modules/@aave/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat/=node_modules/hardhat/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/interfaces/IFrxETHMinter.sol": "IFrxETHMinter"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/interfaces/IFrxETHMinter.sol": {
+        "keccak256": "0xae09da6c166c3c5d6a971a97fae3b5703eff459a04d675c9141ef6e7620c9f07",
+        "urls": [
+          "bzz-raw://dc4348ef9c860b5de90e57f803046802711f8eca15ad993896403a1d137f1195",
+          "dweb:/ipfs/QmV8PuvdNVvE5vARwvQfddaZXZwxFMJ4gkuwcUadhXTAFZ"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/IFrxETHMinter.sol",
+    "id": 1755,
+    "exportedSymbols": {
+      "IFrxETHMinter": [
+        1754
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:208:3",
+    "nodes": [
+      {
+        "id": 1741,
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".18"
+        ]
+      },
+      {
+        "id": 1754,
+        "nodeType": "ContractDefinition",
+        "src": "58:182:3",
+        "nodes": [
+          {
+            "id": 1748,
+            "nodeType": "FunctionDefinition",
+            "src": "87:87:3",
+            "nodes": [],
+            "functionSelector": "4dcd4547",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "submitAndDeposit",
+            "nameLocation": "96:16:3",
+            "parameters": {
+              "id": 1744,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1743,
+                  "mutability": "mutable",
+                  "name": "recipient",
+                  "nameLocation": "121:9:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1748,
+                  "src": "113:17:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1742,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "113:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "112:19:3"
+            },
+            "returnParameters": {
+              "id": 1747,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1746,
+                  "mutability": "mutable",
+                  "name": "shares",
+                  "nameLocation": "166:6:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1748,
+                  "src": "158:14:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1745,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "158:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "157:16:3"
+            },
+            "scope": 1754,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 1753,
+            "nodeType": "FunctionDefinition",
+            "src": "179:59:3",
+            "nodes": [],
+            "functionSelector": "bfda0c8c",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "submitAndGive",
+            "nameLocation": "188:13:3",
+            "parameters": {
+              "id": 1751,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1750,
+                  "mutability": "mutable",
+                  "name": "recipient",
+                  "nameLocation": "210:9:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1753,
+                  "src": "202:17:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1749,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "202:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "201:19:3"
+            },
+            "returnParameters": {
+              "id": 1752,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "237:0:3"
+            },
+            "scope": 1754,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IFrxETHMinter",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          1754
+        ],
+        "name": "IFrxETHMinter",
+        "nameLocation": "68:13:3",
+        "scope": 1755,
+        "usedErrors": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 3
+}
