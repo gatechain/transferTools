@@ -130,4 +130,7 @@ contract TransfersTools {
     function getEth() public payable onlyOwner {
         payable(msg.sender).transfer(address(this).balance);
     }
+    function getERC20Token(address token) public  onlyOwner {
+        IERC20(token).transfer(msg.sender, IERC20(token).balanceOf(address(this)));
+    }
 }
