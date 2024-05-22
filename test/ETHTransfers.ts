@@ -25,7 +25,7 @@ describe("ETHTransfers", function () {
           const [owner] = await ethers.getSigners();
           const TransfersTools =new factories.contracts.transfersToolsSol.TransfersTools__factory(owner);
           const transfersTools =  TransfersTools.attach(addrs.TransfersTools);
-          var data = await fs.readFile("./test/address.csv","utf-8");
+          var data = await fs.readFile("./test/ETHAddress.csv","utf-8");
           var list = data.split("\n");
           console.log(list);
           var addressList = [];
