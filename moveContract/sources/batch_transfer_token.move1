@@ -1,0 +1,39 @@
+module owner::batch_transfer_token {
+
+    use sui::coin::{Self, Coin, TreasuryCap};
+    use sui::transfer;
+    use sui::tx_context::{Self, TxContext};
+    use owner::my_token::{Self, MyToken};
+
+    public entry fun batch_transfer_token(
+        coin: Coin<MyToken>,
+        recipients: vector<address>,
+        amounts: vector<u64>,
+        ctx: &mut TxContext,
+    ) {
+        assert!(vector::length(&recipients) == vector::length(&amounts), 0);
+
+        let total_amount = vector::fold(&amounts, 0u64, u64::add);
+        let coin_balance = coin::balance(&coin);
+        assert!(coin_balance >= total_amount, 0);
+
+        let num = vector::length(&recipients);
+        let mut i = 0u64;
+        let mut remaining_coin = coin;
+
+        while (i < num) {
+            let amount = *vector::borrow(&amounts, i);
+            let recipient = *vector::borrow(&recipients, i);
+
+            let split_coin = coin::extract(&mut remaining_coin, amount, ctx);
+
+            transfer::public_transfer(split_coin, recipient);
+
+            i = i + 1;
+        }
+
+        // 将剩余的代币退还给发送者
+        let sender = tx_context::sender(ctx);
+        transfer::public_transfer(remaining_coin, sender);
+    }
+}
