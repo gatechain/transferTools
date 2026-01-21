@@ -7579,9 +7579,9 @@
                             "src": "8671:63:18",
                             "typeDescriptions": {
                               "typeIdentifier": "t_stringliteral_46ad579bb5d9f21dd75a711d1d55f38711d31c11909bca22ac3b7dbcb26f873d",
-                              "typeString": "literal_string \"https://sepolia.infura.io/v3/REMOVED_SECRET\""
+                              "typeString": "literal_string \"sdf\""
                             },
-                            "value": "https://sepolia.infura.io/v3/REMOVED_SECRET"
+                            "value": "sdf"
                           }
                         ],
                         "expression": {
@@ -7596,7 +7596,7 @@
                             },
                             {
                               "typeIdentifier": "t_stringliteral_46ad579bb5d9f21dd75a711d1d55f38711d31c11909bca22ac3b7dbcb26f873d",
-                              "typeString": "literal_string \"https://sepolia.infura.io/v3/REMOVED_SECRET\""
+                              "typeString": "literal_string \"sdf\""
                             }
                           ],
                           "id": 6488,
